@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: PayedIn
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: true
+        jdbc:
+          batch_size: 200
+    open-in-view: false
+    database-platform: org.hibernate.dialect.MySQLDialect
+
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${DB_HOST:localhost}:3306/payedin
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:11111111}
+
+jwt:
+  secret: ${TOKEN_SECRET:localtestlocaltestlocaltest}
