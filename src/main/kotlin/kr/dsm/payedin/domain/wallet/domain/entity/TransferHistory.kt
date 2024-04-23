@@ -1,4 +1,4 @@
-package kr.dsm.payedin.domain.trade.domain.entity
+package kr.dsm.payedin.domain.wallet.domain.entity
 
 import jakarta.persistence.Entity
 import kr.dsm.payedin.global.entity.BaseEntity
