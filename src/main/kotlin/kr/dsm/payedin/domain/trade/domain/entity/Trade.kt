@@ -6,8 +6,6 @@ import java.util.UUID
 
 @Entity
 class Trade(
-    id: UUID? = null,
-
     val title: String,
 
     val content: String,
@@ -17,4 +15,4 @@ class Trade(
     val imageUrl: String,
 
     val userId: UUID
-) : BaseEntity(id)
+) : BaseEntity()

@@ -9,12 +9,10 @@ import java.util.UUID
 
 @Entity
 class TradeRequest(
-    id: UUID? = null,
-
     val tradeId: UUID,
 
     val userId: UUID,
 
     @Enumerated(EnumType.STRING)
     var status: TradeStatus,
-) : BaseEntity(id)
+) : BaseEntity()

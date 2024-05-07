@@ -1,28 +1,25 @@
 package kr.dsm.payedin.domain.user.domain.entity
 
+import jakarta.persistence.Column
 import jakarta.persistence.Entity
 import kr.dsm.payedin.global.entity.BaseEntity
 import java.util.UUID
 
 @Entity
 class User(
-    id: UUID? = null,
-
     val name: String,
 
+    @Column(unique = true)
     val gcn: String,
 
+    @Column(unique = true)
     val nickname: String,
-
-    val profileImageUrl: String,
 
     val balance: Int,
 
     val accountNumber: String,
 
-    val accountName: String,
-
     val bonusTotal: Int,
 
     val minusTotal: Int
-) : BaseEntity(id)
+) : BaseEntity()

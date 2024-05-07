@@ -6,8 +6,6 @@ import java.util.UUID
 
 @Entity
 class TransferHistory(
-    id: UUID? = null,
-
     val balance: Int,
 
     val difference: Int,
@@ -15,4 +13,4 @@ class TransferHistory(
     val userId: UUID,
 
     val targetUserId: UUID
-) : BaseEntity(id)
+) : BaseEntity()
