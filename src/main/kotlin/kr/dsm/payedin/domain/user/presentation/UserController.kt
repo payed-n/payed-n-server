@@ -1,7 +1,9 @@
 package kr.dsm.payedin.domain.user.presentation
 
+import kr.dsm.payedin.domain.user.application.GetPointService
 import kr.dsm.payedin.domain.user.application.LoginService
 import kr.dsm.payedin.domain.user.application.SignUpService
+import kr.dsm.payedin.domain.user.presentation.dto.GetPointResponse
 import kr.dsm.payedin.domain.user.presentation.dto.SignUpRequest
 import kr.dsm.payedin.domain.user.presentation.dto.TokenResponse
 import org.springframework.http.HttpStatus
@@ -17,7 +19,8 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 class UserController(
     private val loginService: LoginService,
-    private val signUpService: SignUpService
+    private val signUpService: SignUpService,
+    private val getPointService: GetPointService
 ) {
 
     @GetMapping("/sign-in")
@@ -29,4 +32,7 @@ class UserController(
     fun signUp(@RequestBody request: SignUpRequest): TokenResponse =
         signUpService.execute(request)
 
+    @GetMapping("/point")
+    fun getPoint(): GetPointResponse =
+        getPointService.execute()
 }
