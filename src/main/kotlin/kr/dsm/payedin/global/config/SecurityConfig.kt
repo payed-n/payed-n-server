@@ -21,8 +21,8 @@ class SecurityConfig(
             sessionManagement { sessionCreationPolicy = SessionCreationPolicy.STATELESS }
 
             authorizeHttpRequests {
-                authorize(HttpMethod.GET, "/", permitAll)
-                authorize(HttpMethod.GET, "/auth", authenticated)
+                authorize(HttpMethod.POST, "/users/sign-in", permitAll)
+                authorize(HttpMethod.POST, "/users/sign-up", permitAll)
                 authorize(anyRequest, denyAll)
             }
         }
