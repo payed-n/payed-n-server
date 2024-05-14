@@ -28,6 +28,9 @@ class SecurityConfig(
                 authorize(HttpMethod.POST, "/wallets/transfer", authenticated)
                 authorize(HttpMethod.GET, "/wallets/my", authenticated)
                 authorize(HttpMethod.GET, "/wallets/my/history", authenticated)
+
+                authorize(HttpMethod.GET, "/trades", authenticated)
+                authorize(HttpMethod.GET, "/trades/{id}", authenticated)
                 authorize(anyRequest, denyAll)
             }
         }
