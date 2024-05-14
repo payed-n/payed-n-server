@@ -10,7 +10,7 @@ class TransferHistory(
 
     val difference: Int,
 
-    val userId: UUID,
+    val name: String,
 
-    val targetUserId: UUID
+    val userId: UUID,
 ) : BaseEntity()

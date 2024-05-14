@@ -11,4 +11,6 @@ interface UserRepository {
     fun save(user: User): User
 
     fun findByGcn(gcn: String): User?
+
+    fun findByAccountNumber(accountNumber: String): User?
 }

@@ -8,4 +8,6 @@ interface UserJpaRepository : CrudRepository<User, UUID> {
     fun findByGcn(gcn: String): User?
 
     fun existsByGcnOrNickname(gcn: String, nickname: String): Boolean
+
+    fun findByAccountNumber(accountNumber: String): User?
 }
