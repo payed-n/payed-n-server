@@ -4,4 +4,6 @@ import kr.dsm.payedin.domain.wallet.domain.entity.TransferHistory
 import org.springframework.data.repository.CrudRepository
 import java.util.UUID
 
-interface TransferHistoryJpaRepository : CrudRepository<TransferHistory, UUID>
+interface TransferHistoryJpaRepository : CrudRepository<TransferHistory, UUID> {
+    fun findByUserId(userId: UUID): List<TransferHistory>
+}
