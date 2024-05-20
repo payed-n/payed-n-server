@@ -35,4 +35,7 @@ class TradeRepositoryImpl(
 
     override fun save(trade: Trade): Trade =
         tradeJpaRepository.save(trade)
+
+    override fun delete(trade: Trade): Unit =
+        tradeJpaRepository.delete(trade)
 }

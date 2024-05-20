@@ -10,4 +10,6 @@ interface TradeRepository {
     fun findById(tradeId: UUID): Trade?
 
     fun save(trade: Trade): Trade
+
+    fun delete(trade: Trade): Unit
 }
