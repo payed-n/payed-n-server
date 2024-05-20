@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service
 import java.util.*
 
 @Service
-class deleteTradeService(
+class DeleteTradeService(
     private val tradeRepository: TradeRepository
 ) {
     fun execute(tradeId: UUID) {
