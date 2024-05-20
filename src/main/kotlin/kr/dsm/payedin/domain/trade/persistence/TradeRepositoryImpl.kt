@@ -33,4 +33,6 @@ class TradeRepositoryImpl(
     override fun findById(tradeId: UUID): Trade? =
         tradeJpaRepository.findByIdOrNull(tradeId)
 
+    override fun save(trade: Trade): Trade =
+        tradeJpaRepository.save(trade)
 }

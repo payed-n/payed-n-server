@@ -8,4 +8,6 @@ interface TradeRepository {
     fun findAll(): List<TradeVO>
 
     fun findById(tradeId: UUID): Trade?
+
+    fun save(trade: Trade): Trade
 }

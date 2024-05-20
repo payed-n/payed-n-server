@@ -10,7 +10,7 @@ class Trade(
 
     val content: String,
 
-    val price: String,
+    val price: Int,
 
     val imageUrl: String,
 

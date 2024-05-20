@@ -17,7 +17,7 @@ class TokenFilter(
         response: HttpServletResponse,
         filterChain: FilterChain
     ) {
-        val token = resolveToken(request)
+        val token = resolveToken(request)?.substring(7)
         token?.let {
             SecurityContextHolder.getContext().authentication =
                 tokenParser.generateAuthenticationFromToken(token)

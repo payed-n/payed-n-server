@@ -24,6 +24,7 @@ class SecurityConfig(
                 authorize(HttpMethod.GET, "/users/sign-in", permitAll)
                 authorize(HttpMethod.POST, "/users/sign-up", permitAll)
                 authorize(HttpMethod.GET, "/users/point", authenticated)
+                authorize(HttpMethod.GET, "/users", authenticated)
 
                 authorize(HttpMethod.POST, "/wallets/transfer", authenticated)
                 authorize(HttpMethod.GET, "/wallets/my", authenticated)
@@ -31,6 +32,7 @@ class SecurityConfig(
 
                 authorize(HttpMethod.GET, "/trades", authenticated)
                 authorize(HttpMethod.GET, "/trades/{id}", authenticated)
+                authorize(HttpMethod.POST, "/trades", authenticated)
                 authorize(anyRequest, denyAll)
             }
         }
