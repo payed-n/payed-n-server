@@ -1,9 +1,6 @@
 package kr.dsm.payedin.domain.trade.presentation
 
-import kr.dsm.payedin.domain.trade.application.CreateTradeService
-import kr.dsm.payedin.domain.trade.application.GetAllTradeService
-import kr.dsm.payedin.domain.trade.application.GetTradeInfoService
-import kr.dsm.payedin.domain.trade.application.deleteTradeService
+import kr.dsm.payedin.domain.trade.application.*
 import kr.dsm.payedin.domain.trade.presentation.dto.CreateTradeRequest
 import kr.dsm.payedin.domain.trade.presentation.dto.GetAllTradeResponse
 import org.springframework.http.HttpStatus
@@ -24,6 +21,7 @@ class TradeController(
     private val getTradeInfoService: GetTradeInfoService,
     private val createTradeService: CreateTradeService,
     private val deleteTradeService: deleteTradeService,
+    private val createTradeRequestService: CreateTradeRequestService,
 ) {
 
     @GetMapping
@@ -43,4 +41,9 @@ class TradeController(
     @DeleteMapping("/{id}")
     fun deleteTrade(@PathVariable(name = "id") tradeId: UUID) =
         deleteTradeService.execute(tradeId)
+
+    @ResponseStatus(HttpStatus.CREATED)
+    @PostMapping("/trade/{id}")
+    fun createTradeRequest(@PathVariable(name = "id") tradeId: UUID) =
+        createTradeRequestService.execute(tradeId)
 }
