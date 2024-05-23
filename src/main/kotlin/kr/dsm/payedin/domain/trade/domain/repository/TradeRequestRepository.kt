@@ -11,4 +11,6 @@ interface TradeRequestRepository {
     fun save(tradeRequest: TradeRequest): TradeRequest
 
     fun findAllByTradeId(tradeId: UUID): List<TradeRequestVO>
+
+    fun delete(tradeRequest: TradeRequest)
 }

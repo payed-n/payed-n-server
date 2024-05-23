@@ -1,6 +1,7 @@
 package kr.dsm.payedin.domain.trade.presentation
 
 import kr.dsm.payedin.domain.trade.application.*
+import kr.dsm.payedin.domain.trade.presentation.dto.ApproveTradeRequest
 import kr.dsm.payedin.domain.trade.presentation.dto.CreateTradeRequest
 import kr.dsm.payedin.domain.trade.presentation.dto.GetAllTradeResponse
 import org.springframework.http.HttpStatus
@@ -24,6 +25,7 @@ class TradeController(
     private val deleteTradeService: DeleteTradeService,
     private val createTradeRequestService: CreateTradeRequestService,
     private val getAllTradeRequestService: GetAllTradeRequestService,
+    private val approveTradeRequestService: ApproveTradeRequestService,
 ) {
 
     @GetMapping
@@ -52,4 +54,13 @@ class TradeController(
     @GetMapping("/trade/req")
     fun getAllTradeRequest(@RequestParam(name = "trade_id") tradeId: UUID) =
         getAllTradeRequestService.execute(tradeId)
+
+    @PostMapping("/approve")
+    fun approveTradeRequest(
+        @RequestParam(name = "trade_id") tradeId: UUID,
+        @RequestParam(name = "user_id") userId: UUID,
+        @RequestParam(name = "approve") approve: Boolean,
+    ) {
+        approveTradeRequestService.execute(tradeId, userId, approve)
+    }
 }

@@ -33,4 +33,7 @@ class TradeRequestRepositoryImpl(
             ).from(tradeRequest)
             .join(trade).on(tradeRequest.tradeId.eq(trade.id))
             .fetch()
+
+    override fun delete(tradeRequest: TradeRequest) =
+        tradeRequestJpaRepository.delete(tradeRequest)
 }

@@ -15,4 +15,7 @@ class TransferHistoryRepositoryImpl(
 
     override fun findByUserId(userId: UUID): List<TransferHistory> =
         transferHistoryJpaRepository.findByUserId(userId)
+
+    override fun save(transferHistory: TransferHistory): TransferHistory =
+        transferHistoryJpaRepository.save(transferHistory)
 }
