@@ -18,10 +18,9 @@ class CreateTradeRequestService(
     fun execute(tradeId: UUID) {
         val userId = (SecurityContextHolder.getContext().authentication.principal as CustomUserDetail).user.id
 
-        val trade = tradeRepository.findById(tradeId)
-        if(trade == null) throw NotFoundException("Trade with id $trade not found")
+        tradeRepository.findById(tradeId)?: throw NotFoundException("Trade not found")
 
-        this.tradeRequestRepository.save(
+        tradeRequestRepository.save(
             TradeRequest(
                 tradeId,
                 userId,

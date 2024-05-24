@@ -5,6 +5,7 @@ import kr.dsm.payedin.domain.trade.domain.value.TradeStatus
 import java.util.*
 
 class TradeRequestVO @QueryProjection constructor(
+    val tradeRequestId: UUID,
     val tradeId: UUID,
     val imageUrl: String,
     val title: String,

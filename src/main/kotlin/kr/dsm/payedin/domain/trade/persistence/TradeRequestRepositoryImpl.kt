@@ -26,6 +26,7 @@ class TradeRequestRepositoryImpl(
         queryFactory
             .select(
                 QTradeRequestVO(
+                    tradeRequest.id,
                     trade.id,
                     trade.imageUrl,
                     trade.title,
@@ -34,8 +35,8 @@ class TradeRequestRepositoryImpl(
                 )
             ).from(tradeRequest)
             .join(trade)
-            .on(trade.id.eq(tradeRequest.id), trade.userId.eq(userId))
-            .join(user).on(user.id.eq(trade.userId))
+            .on(trade.id.eq(tradeRequest.tradeId), trade.userId.eq(userId))
+            .join(user).on(user.id.eq(tradeRequest.userId))
             .fetch()
 
     override fun delete(tradeRequest: TradeRequest) =
