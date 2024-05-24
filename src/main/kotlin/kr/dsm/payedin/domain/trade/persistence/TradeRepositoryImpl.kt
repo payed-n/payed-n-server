@@ -1,5 +1,6 @@
 package kr.dsm.payedin.domain.trade.persistence
 
+import com.querydsl.core.types.dsl.BooleanExpression
 import com.querydsl.jpa.impl.JPAQueryFactory
 import kr.dsm.payedin.domain.trade.domain.repository.TradeRepository
 import kr.dsm.payedin.domain.trade.persistence.vo.QTradeVO
@@ -16,7 +17,7 @@ class TradeRepositoryImpl(
     private val tradeJpaRepository: TradeJpaRepository,
     private val queryFactory: JPAQueryFactory
 ) : TradeRepository {
-    override fun findAll(): List<TradeVO> =
+    override fun findAll(userId: UUID): List<TradeVO> =
         queryFactory
             .select(
                 QTradeVO(
@@ -24,7 +25,8 @@ class TradeRepositoryImpl(
                     user.nickname,
                     trade.title,
                     trade.createdAt,
-                    trade.imageUrl
+                    trade.imageUrl,
+                    trade.userId.eq(userId)
                 )
             ).from(trade)
             .join(user).on(trade.userId.eq(user.id))

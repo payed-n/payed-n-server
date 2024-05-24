@@ -9,5 +9,6 @@ class TradeVO @QueryProjection constructor(
     val nickname: String,
     val title: String,
     val createdAt: LocalDateTime,
-    val imageUrl: String
+    val imageUrl: String,
+    val isMine: Boolean
 )

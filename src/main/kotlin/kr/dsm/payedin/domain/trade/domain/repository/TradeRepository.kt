@@ -5,7 +5,7 @@ import kr.dsm.payedin.domain.trade.persistence.vo.TradeVO
 import java.util.UUID
 
 interface TradeRepository {
-    fun findAll(): List<TradeVO>
+    fun findAll(userId: UUID): List<TradeVO>
 
     fun findById(tradeId: UUID): Trade?
 
