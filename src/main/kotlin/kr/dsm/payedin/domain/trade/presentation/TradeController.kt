@@ -57,10 +57,9 @@ class TradeController(
 
     @PostMapping("/approve")
     fun approveTradeRequest(
-        @RequestParam(name = "trade_id") tradeId: UUID,
-        @RequestParam(name = "user_id") userId: UUID,
+        @RequestParam(name = "trade_request_id") tradeRequestId: UUID,
         @RequestParam(name = "approve") approve: Boolean,
     ) {
-        approveTradeRequestService.execute(tradeId, userId, approve)
+        approveTradeRequestService.execute(tradeRequestId, approve)
     }
 }

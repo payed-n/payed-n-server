@@ -39,6 +39,9 @@ class TradeRequestRepositoryImpl(
             .join(user).on(user.id.eq(tradeRequest.userId))
             .fetch()
 
+    override fun findById(tradeRequestId: UUID): TradeRequest? =
+        tradeRequestJpaRepository.findById(tradeRequestId).orElse(null)
+
     override fun delete(tradeRequest: TradeRequest) =
         tradeRequestJpaRepository.delete(tradeRequest)
 }

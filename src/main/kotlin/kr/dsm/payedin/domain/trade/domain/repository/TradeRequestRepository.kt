@@ -12,5 +12,7 @@ interface TradeRequestRepository {
 
     fun findAllByUserId(userId: UUID): List<TradeRequestVO>
 
+    fun findById(tradeRequestId: UUID): TradeRequest?
+
     fun delete(tradeRequest: TradeRequest)
 }
