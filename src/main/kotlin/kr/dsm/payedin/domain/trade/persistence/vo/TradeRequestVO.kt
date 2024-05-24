@@ -6,6 +6,8 @@ import java.util.*
 
 class TradeRequestVO @QueryProjection constructor(
     val tradeId: UUID,
+    val imageUrl: String,
+    val title: String,
     val userId: UUID,
-    val status: TradeStatus
+    val nickname: String
 )

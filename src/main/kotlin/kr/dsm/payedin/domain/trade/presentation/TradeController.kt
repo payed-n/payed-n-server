@@ -52,8 +52,8 @@ class TradeController(
         createTradeRequestService.execute(tradeId)
 
     @GetMapping("/trade/req")
-    fun getAllTradeRequest(@RequestParam(name = "trade_id") tradeId: UUID) =
-        getAllTradeRequestService.execute(tradeId)
+    fun getAllTradeRequest() =
+        getAllTradeRequestService.execute()
 
     @PostMapping("/approve")
     fun approveTradeRequest(

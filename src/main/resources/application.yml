@@ -19,7 +19,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://${DB_HOST:localhost}:3306/payedin
     username: ${DB_USERNAME:root}
-    password: ${DB_PASSWORD:thfod2ek!@}
+    password: ${DB_PASSWORD:password}
 
 jwt:
   secret: ${TOKEN_SECRET:localtestlocaltestlocaltest}

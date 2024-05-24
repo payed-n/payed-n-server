@@ -22,16 +22,20 @@ class TradeRequestRepositoryImpl(
     override fun save(tradeRequest: TradeRequest): TradeRequest =
         tradeRequestJpaRepository.save(tradeRequest)
 
-    override fun findAllByTradeId(tradeId: UUID): List<TradeRequestVO> =
+    override fun findAllByUserId(userId: UUID): List<TradeRequestVO> =
         queryFactory
             .select(
                 QTradeRequestVO(
                     trade.id,
+                    trade.imageUrl,
+                    trade.title,
                     trade.userId,
-                    tradeRequest.status
+                    user.nickname
                 )
             ).from(tradeRequest)
-            .join(trade).on(tradeRequest.tradeId.eq(trade.id))
+            .join(trade)
+            .on(trade.id.eq(tradeRequest.id), trade.userId.eq(userId))
+            .join(user).on(user.id.eq(trade.userId))
             .fetch()
 
     override fun delete(tradeRequest: TradeRequest) =

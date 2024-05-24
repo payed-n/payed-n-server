@@ -10,7 +10,7 @@ interface TradeRequestRepository {
 
     fun save(tradeRequest: TradeRequest): TradeRequest
 
-    fun findAllByTradeId(tradeId: UUID): List<TradeRequestVO>
+    fun findAllByUserId(userId: UUID): List<TradeRequestVO>
 
     fun delete(tradeRequest: TradeRequest)
 }
