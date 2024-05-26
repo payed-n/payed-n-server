@@ -1,6 +1,5 @@
 package kr.dsm.payedin.domain.trade.persistence
 
-import com.querydsl.core.types.dsl.BooleanExpression
 import com.querydsl.jpa.impl.JPAQueryFactory
 import kr.dsm.payedin.domain.trade.domain.repository.TradeRepository
 import kr.dsm.payedin.domain.trade.persistence.vo.QTradeVO

@@ -16,7 +16,8 @@ class GetMyWalletInfoService {
 
         return GetMyWalletInfoResponse(
             balance = currentWallet.balance,
-            accountNumber = currentWallet.accountNumber
+            accountNumber = currentWallet.accountNumber,
+            name = currentWallet.name
         )
     }
 }

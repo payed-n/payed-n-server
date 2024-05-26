@@ -55,6 +55,7 @@ class TradeController(
     fun getAllTradeRequest() =
         getAllTradeRequestService.execute()
 
+    @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/approve")
     fun approveTradeRequest(
         @RequestParam(name = "trade_request_id") tradeRequestId: UUID,
