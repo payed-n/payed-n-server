@@ -10,4 +10,6 @@ interface UserJpaRepository : CrudRepository<User, UUID> {
     fun existsByGcnOrNickname(gcn: String, nickname: String): Boolean
 
     fun findByAccountNumber(accountNumber: String): User?
+
+    override fun findAll(): List<User>
 }

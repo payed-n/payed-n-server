@@ -36,6 +36,10 @@ dependencies {
     runtimeOnly("com.mysql:mysql-connector-j")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.springframework.security:spring-security-test")
+    implementation("org.springframework.cloud:spring-cloud-starter-openfeign:4.1.2")
+    implementation("org.springframework.cloud:spring-cloud-dependencies:2023.0.1")
+
+
 }
 
 tasks.withType<KotlinCompile> {

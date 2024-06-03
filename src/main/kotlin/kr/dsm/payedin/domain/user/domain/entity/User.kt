@@ -4,6 +4,7 @@ import jakarta.persistence.Column
 import jakarta.persistence.Entity
 import kr.dsm.payedin.common.exception.BadRequestException
 import kr.dsm.payedin.global.entity.BaseEntity
+import java.util.UUID
 
 @Entity
 class User(
@@ -19,9 +20,11 @@ class User(
 
     val accountNumber: String,
 
-    val bonusTotal: Int,
+    var bonusTotal: Int,
 
-    val minusTotal: Int
+    var minusTotal: Int,
+
+    val dmsId: UUID
 ) : BaseEntity() {
     fun withdraw(amount: Int) {
         if (this.balance < amount) {
@@ -33,5 +36,12 @@ class User(
 
     fun deposit(amount: Int) {
         this.balance += amount
+    }
+
+    fun updatePointInfo(bonus: Int, minus: Int) {
+        this.bonusTotal = bonus
+        this.minusTotal = minus
+
+        this.balance = (bonusTotal - bonus) * 1000 - (minusTotal - minus) * 500
     }
 }

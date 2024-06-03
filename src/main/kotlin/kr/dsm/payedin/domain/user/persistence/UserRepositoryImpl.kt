@@ -25,4 +25,7 @@ class UserRepositoryImpl(
 
     override fun findByAccountNumber(accountNumber: String): User? =
         userJpaRepository.findByAccountNumber(accountNumber)
+
+    override fun findAll(): List<User> =
+        userJpaRepository.findAll()
 }

@@ -21,4 +21,7 @@ spring:
     password: ${DB_PASSWORD:password}
 
 jwt:
-  secret: ${TOKEN_SECRET:localtestlocaltestlocaltest}
+  secret: ${TOKEN_SECRET:asdfghgfdsasdfghgfdsasdfghgfdsasdfghgfdsasdfghgfdsasdfghgfdsasdfghgfdsasdfghgfdsasdfghgfdsasdfghgfds}
+
+dms:
+  token: ${DMS_TOKEN:asf}

@@ -13,4 +13,6 @@ interface UserRepository {
     fun findByGcn(gcn: String): User?
 
     fun findByAccountNumber(accountNumber: String): User?
+
+    fun findAll(): List<User>
 }
