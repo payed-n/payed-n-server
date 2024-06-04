@@ -28,4 +28,7 @@ class UserRepositoryImpl(
 
     override fun findAll(): List<User> =
         userJpaRepository.findAll()
+
+    override fun findByNickname(nickname: String): User? =
+        userJpaRepository.findByNickname(nickname)
 }

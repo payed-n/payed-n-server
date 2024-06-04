@@ -13,8 +13,24 @@ data class StudentResponse(
 )
 
 data class StudentDetailResponse(
-    val id: UUID,
     val name: String,
+    val gcn: String,
     val bonus_point: Int,
     val minus_point: Int,
+)
+
+data class StudentProfileResponse(
+    val name: String,
+    val gcn: String,
+    val bonus_point: Int,
+    val minus_point: Int,
+)
+
+data class LoginRequest(
+    val account_id: String,
+    val password: String
+)
+
+data class LoginResponse(
+    val access_token: String
 )

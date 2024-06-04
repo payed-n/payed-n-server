@@ -22,9 +22,7 @@ class User(
 
     var bonusTotal: Int,
 
-    var minusTotal: Int,
-
-    val dmsId: UUID
+    var minusTotal: Int
 ) : BaseEntity() {
     fun withdraw(amount: Int) {
         if (this.balance < amount) {

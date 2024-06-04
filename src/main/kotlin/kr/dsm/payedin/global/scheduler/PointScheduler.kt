@@ -16,7 +16,7 @@ class PointScheduler(
     @Scheduled(cron = "0 0 0 * * *")
     fun run() {
         userRepository.findAll().forEach {
-            val dmsInfo = feignFacade.getDmsUserInfo(it.dmsId)
+            val dmsInfo = feignFacade.getDmsUserInfo(it.name, it.gcn)
             it.updatePointInfo(
                 bonus = dmsInfo.bonus_point,
                 minus = dmsInfo.minus_point

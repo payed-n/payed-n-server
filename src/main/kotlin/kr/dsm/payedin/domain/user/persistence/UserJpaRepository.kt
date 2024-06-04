@@ -12,4 +12,6 @@ interface UserJpaRepository : CrudRepository<User, UUID> {
     fun findByAccountNumber(accountNumber: String): User?
 
     override fun findAll(): List<User>
+
+    fun findByNickname(nickname: String): User?
 }

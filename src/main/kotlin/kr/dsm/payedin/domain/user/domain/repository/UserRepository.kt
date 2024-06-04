@@ -15,4 +15,6 @@ interface UserRepository {
     fun findByAccountNumber(accountNumber: String): User?
 
     fun findAll(): List<User>
+
+    fun findByNickname(nickname: String): User?
 }
