@@ -26,6 +26,7 @@ class TradeController(
     private val createTradeRequestService: CreateTradeRequestService,
     private val getAllTradeRequestService: GetAllTradeRequestService,
     private val approveTradeRequestService: ApproveTradeRequestService,
+    private val cancelTradeRequestService: CancelTradeRequestService
 ) {
 
     @GetMapping
@@ -62,5 +63,11 @@ class TradeController(
         @RequestParam(name = "approve") approve: Boolean,
     ) {
         approveTradeRequestService.execute(tradeRequestId, approve)
+    }
+
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @DeleteMapping("/req/{id}")
+    fun deleteTradeRequest(@PathVariable(name = "id") tradeRequestId: UUID) {
+        cancelTradeRequestService.execute(tradeRequestId)
     }
 }

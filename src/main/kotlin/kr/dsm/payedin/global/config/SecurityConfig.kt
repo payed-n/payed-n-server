@@ -37,6 +37,7 @@ class SecurityConfig(
                 authorize(HttpMethod.POST, "/trades/trade/{id}", authenticated)
                 authorize(HttpMethod.GET, "/trades/trade/req", authenticated)
                 authorize(HttpMethod.POST, "/trades/approve", authenticated)
+                authorize(HttpMethod.DELETE, "/trades/req/{id}", authenticated)
                 authorize(anyRequest, denyAll)
             }
         }

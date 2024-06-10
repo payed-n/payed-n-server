@@ -25,10 +25,12 @@ class GetTradeInfoService(
             ?: throw NotFoundException("Trade Not Found")
         val user = userRepository.findById(trade.userId)!!
 
+        val tradeRequest = tradeRequestRepository.findByUserIdAndTradeId(userId, tradeId)
         return GetTradeInfoResponse(
             trade = trade,
             user = user,
-            status = tradeRequestRepository.findByUserIdAndTradeId(userId, tradeId)?.status
+            status = tradeRequest?.status,
+            tradeRequestId = tradeRequest?.id
         )
     }
 }
